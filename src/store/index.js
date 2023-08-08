@@ -27,6 +27,10 @@ export default createStore({
         const response =localStorage.getItem(`${id}`)
         commit('setData',response)
     },
+    async deleteData({commit},id) {
+        const response =localStorage.removeItem(`${id}`)
+        commit('setData',response)
+    },
    
   },
 

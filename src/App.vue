@@ -3,10 +3,31 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
 </nav>-->
+<Navbar v-if="!isRootRoute && !isSignupRoute" />
 
   <router-view/>
   
 </template>
+<script>
+import Navbar from './components/Navbar.vue';
+export default {
+    name: 'App',
+    components: {
+        Navbar
+    },
+    computed: {
+    isRootRoute() {
+      // Check if the current route is the root route ("/")
+      return this.$route.path === '/';
+    },
+    isSignupRoute() {
+      // Check if the current route is the root route ("/")
+      return this.$route.path === '/signup';
+    },
+  },
+    
+}
+</script>
 
 <style>
 #app {

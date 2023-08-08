@@ -11,8 +11,8 @@
     <v-text-field type="text" label="Title" required v-model="form.title"></v-text-field>
     
   
-    <v-text-field type="text" label="Description" required v-model="form.des"></v-text-field>
-    <v-text-field type="text" label="Id" required v-model="form.id"></v-text-field>
+    <v-text-field  type="text" label="Description"  v-model="form.des" required></v-text-field>
+    <v-text-field type="text" label="Id"  v-model="form.id" required></v-text-field>
    
     <!--<p property="disable" v-if="errors" style="color: red;"> {{errors}} </p>-->
    
@@ -44,6 +44,15 @@ export default {
         
 
      },
+     titleRules: [
+        (v) => !!v || 'Title is required',
+        (v) => v.length <= 100 || 'Title must be less than 100 characters',
+      ],
+      descriptionRules: [(v) => !!v || 'Description is required'],
+      idRules: [
+        (v) => !!v || 'Id is required',
+        (v) => v.length <= 10 || 'Id must be less than 10 characters',
+      ],
      
 
     };

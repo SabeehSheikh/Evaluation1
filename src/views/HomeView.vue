@@ -2,6 +2,7 @@
   <div class="home">
    
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view name="create"></router-view>
   </div>
 </template>
 
